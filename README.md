@@ -1,6 +1,14 @@
 # Notices
 
-In this project, you'll design and implement application-wide solutions for user confirmations and user notifications. Ideally, you will utilize the existing Redux setup (and tweak it at your discretion) to achieve this. 
+In this project, you'll design and implement an application-wide solution for user notifications. Ideally, you will utilize the existing Redux setup (and tweak it at your discretion) to achieve this. 
+
+## About the App
+You are working in a Redux-backed multi-screen app that consists of 3 pages:
+  - Homepage (`/`)
+  - Lowercase Tool (`/lowercase`)
+  - Uppercase Tool (`/uppercase`)
+
+The uppercase and lowercase pages both take a string input and submit an XHR call to an API. Sometimes these calls may fail, other times they will succeed and provide the expected output. Let's build a user notification system that will notify the user based on events that occur within these 2 pages.
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).

@@ -10,7 +10,6 @@ export default class TextTransformer extends Component {
         mode: PropTypes.oneOf(['lower', 'upper']),
         transformToLowerCase: PropTypes.func.isRequired,
         transformToUpperCase: PropTypes.func.isRequired,
-        currentValue: PropTypes.string.isRequired,
         transformedValue: PropTypes.string
     }
 
