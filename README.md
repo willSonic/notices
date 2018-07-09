@@ -14,6 +14,8 @@ The uppercase and lowercase pages both take a string input and submit an XHR cal
 - When successful, the endpoint will respond with a 200 status code and a JSON payload (e.g. `{ output: "STRINGVALUE" }`
 - In the case of an error, the server will respond with a generic 500 status code and a JSON payload (e.g. `{ message: "There was an error."`
 
+The Redux logic for sending input to the server and handling the responses is already in place. Your solution should exist as another side effect that may be used in the appropriate action creators. 
+
 Your solution should be capable of displaying any type of notification message (toast) to the user, but for this challenge we'll focus on success and failure notices. At a minimum, the notice should be user dismissable. Automatic dismissal after a set timeout is a nice to have. Style is also great to see, but not a hard requirement.
 
 ### Example
