@@ -1,6 +1,6 @@
 # Notices
 
-In this project, you'll design and implement an application-wide solution for user notifications. Ideally, you will utilize the existing Redux setup (and tweak it at your discretion) to achieve this. 
+In this project, you'll design and implement an application-wide solution for user notifications. Ideally, you will utilize the existing Redux setup (and tweak it at your discretion) to achieve the desired result. 
 
 ## About the App
 You are working in a Redux-backed multi-screen app that consists of 3 pages:
@@ -14,7 +14,7 @@ The uppercase and lowercase pages both take a string input and submit an XHR cal
 - When successful, the endpoint will respond with a 200 status code and a JSON payload (e.g. `{ output: "STRINGVALUE" }`
 - In the case of an error, the server will respond with a generic 500 status code and a JSON payload (e.g. `{ message: "There was an error."`
 
-Your solution should be capable of displaying any type of notification message (toast) to the user, but for this challenge we'll focus solely on success and failure notices.
+Your solution should be capable of displaying any type of notification message (toast) to the user, but for this challenge we'll focus on success and failure notices. At a minimum, the notice should be user dismissable. Automatic dismissal after a set timeout is a nice to have. Style is also great to see, but not a hard requirement.
 
 ### Example
 Here's an example of a login failure in the ClearMetal app:
