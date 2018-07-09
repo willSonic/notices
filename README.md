@@ -16,6 +16,10 @@ The uppercase and lowercase pages both take a string input and submit an XHR cal
 
 Your solution should be capable of displaying any type of notification message (toast) to the user, but for this challenge we'll focus solely on success and failure notices.
 
+### Example
+Here's an example of a login failure in the ClearMetal app:
+![Login Error Notification](https://cdn.rawgit.com/tylerclearmetal/notices/68c5060f/error_example.gif)
+
 # Create React App
 Below you will find some information on how to perform common tasks within CRA. This is here purely for reference and shouldn't be necessary to complete the challenge.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
