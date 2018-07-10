@@ -1,6 +1,12 @@
 # Notices
 
-In this project, you'll design and implement an application-wide solution for user notifications. Ideally, you will utilize the existing Redux setup (and tweak it at your discretion) to achieve the desired result. 
+In this project, you'll design and implement an application-wide solution for user notifications. Ideally, you will utilize the existing Redux setup (and tweak it at your discretion) to achieve the desired result.
+
+## Getting Started
+1. Clone the repo to your machine (`git clone https://github.com/tylerclearmetal/notices.git`) and `cd notices`
+1. Install dependencies using `yarn install` or `npm install`
+1. Run API & client app concurrently using `yarn start`
+1. The app should automatically open in a new browser window. If not, visit the app at `localhost:3000`. Hot reloading is enabled.
 
 ## About the App
 You are working in a Redux-backed multi-screen app that consists of 3 pages:
