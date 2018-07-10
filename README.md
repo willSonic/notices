@@ -14,16 +14,20 @@ The uppercase and lowercase pages both take a string input and submit an XHR cal
 - When successful, the endpoint will respond with a 200 status code and a JSON payload (e.g. `{ output: "STRINGVALUE" }`
 - In the case of an error, the server will respond with a generic 500 status code and a JSON payload (e.g. `{ message: "There was an error."`
 
-The Redux logic for sending input to the server and handling the responses is already in place. Your solution should exist as another side effect that may be used in the appropriate action creators. 
+## Challenge Requirements
+The Redux logic for sending input to the server and handling the responses is already in place. Your solution should live as a set of side effects that may be used alongside existing code.
 
+Create a new reducer & Redux logic that generates notification action creators. These actions should be able to be dispatched as a side effect from within an existing reducer/set of actions (`textTransform` in this case). You can use `redux-thunk` for this (already in place), or feel free to use a different approach for side effects if you wish.
+
+### Notes & Nice to Haves
 Your solution should be capable of displaying any type of notification message (toast) to the user, but for this challenge we'll focus on success and failure notices. At a minimum, the notice should be user dismissable. Automatic dismissal after a set timeout is a nice to have. Style is also great to see, but not a hard requirement.
 
-### Example
+### Example Notification
 Here's an example of a login failure in the ClearMetal app:
-![Login Error Notification](https://cdn.rawgit.com/tylerclearmetal/notices/68c5060f/error_example.gif)
+![Notification Example](https://cdn.rawgit.com/tylerclearmetal/notices/abf2791e/example.gif)
 
 # Create React App
-Below you will find some information on how to perform common tasks within CRA. This is here purely for reference and shouldn't be necessary to complete the challenge.<br>
+Below you will find some information on how to perform common tasks within CRA. This is here purely for reference and shouldn't be necessary to complete the challenge.<br><br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Table of Contents
