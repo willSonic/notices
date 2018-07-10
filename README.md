@@ -23,7 +23,7 @@ Create a new reducer & Redux logic that generates notification action creators. 
 Your solution should be capable of displaying any type of notification message (toast) to the user, but for this challenge we'll focus on success and failure notices. At a minimum, the notice should be user dismissable. Automatic dismissal after a set timeout is a nice to have. Style is also great to see, but not a hard requirement.
 
 ### Example Notification
-Here's an example of a login failure in the ClearMetal app:
+Here are some UI examples from a solution to this challenge:
 ![Notification Example](https://cdn.rawgit.com/tylerclearmetal/notices/abf2791e/example.gif)
 
 # Create React App
