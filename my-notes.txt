@@ -1,0 +1,40 @@
+
+Notes
+
+1) Notifications whether from upper or lower case should appear above the app on right side for now
+   > Switch views /uppercase to /lowercase should not automatically remove notification
+   > Notification should last 30 seconds before being gracefuly eliminated and removed from ui and store
+	 > Notification should indicate origination /uppercase or /lowercase
+	 > Notification should indicate type Success or Error
+	 > Notification should include x close
+	 > Notification should include messaging
+
+using redux-observables
+
+Redux Approach
+Redux Observables
+1) set up effect to Catch Http Response
+	    --> Create Notification,
+			     define Model
+					 define Type
+					 define ID uuid
+		  --> Dispatch Action to Store and Add Notfication Collection
+			-->	Dispatch Action to Remove Notification after Set Time Period ( .delay operator)
+			--> Dispatch Action to Remove Notification manually
+
+		  --> whether Manual or Automatic transmission of Action will arrive in sequential order to the reducer
+		        which should enable me to check if the  notification is still present in the store
+		        before attempting to delete it
+
+		 create test between  remove Notification by time and manually SEE https://redux-observable.js.org/docs/recipes/Cancellation.html
+
+
+2) Notifications should
+
+Questions
+
+1) Should we store a collection of the error messages, and then when it reaches specific capacity flush the cache
+
+2) Should I do this both with redux-observables and redux-thunks
+
+3) Should I include reudx-thunk and redux-observable testing and enzyme testing
