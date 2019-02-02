@@ -9,21 +9,21 @@ export const initialState = {
   notificationCollection:[],
 };
 
-export const notifcationReducer = (state = initialState, action) => {
+export const notificationReducer = (state = initialState, action) => {
   const { payload = { } } = action;
   switch(action.type) {
      case ADD_NOTIFICATION:
          return {
             ...state,
             notificationCollection: state.notificationCollection.concat(payload)
-         }
+         };
 
     case MANUAL_REMOVE_NOTIFICATION:
     case AUTO_REMOVE_NOTIFICATION:
          return {
             ...state,
-            notificationCollection:notificationCollection.filter((notification)=> notification.id !== payload.id)
-         }
+            notificationCollection: state.notificationCollection.filter((notification)=> notification.id !== payload.id)
+         };
 
 
     default:
@@ -32,5 +32,5 @@ export const notifcationReducer = (state = initialState, action) => {
 };
 
 
-export const getNotificationCollection = state => state.notifcationReducer.notificationCollection;
+export const getNotificationCollection = state => state.NotificationReducer.notificationCollection;
 

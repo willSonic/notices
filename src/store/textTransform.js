@@ -1,5 +1,10 @@
 import axios from 'axios'
 
+import {
+ NotificationActions
+} from '../snackbar/data_layer';
+
+
 const TRANSFORM_VALUE_LOAD = 'TRANSFORM_VALUE_LOAD'
 const TRANSFORM_VALUE_SUCCESS = 'TRANSFORM_VALUE_SUCCESS'
 const TRANSFORM_VALUE_ERROR = 'TRANSFORM_VALUE_ERROR'
@@ -16,9 +21,15 @@ const transformText = (input, mode = LOWERCASE) => dispatch => {
 
     dispatch({ type: TRANSFORM_VALUE_LOAD })
     axios.post(endpoint, { input })
-        .then(res => dispatch({ type: TRANSFORM_VALUE_SUCCESS, payload: res.data }))
-        .catch(err => dispatch({ type: TRANSFORM_VALUE_ERROR, payload: err }))
-}
+        .then(res => {
+              dispatch( NotificationActions.createSuccessNotification( ) );
+              return dispatch(  { type: TRANSFORM_VALUE_SUCCESS, payload: res.data } );
+        })
+        .catch(err => {
+              dispatch( NotificationActions.createErrorNotification( {err}) );
+              return dispatch( { type: TRANSFORM_VALUE_ERROR, payload: err });
+        });
+};
 
 export const transformToLowerCase = input => transformText(input)
 export const transformToUpperCase = input => transformText(input, UPPERCASE)

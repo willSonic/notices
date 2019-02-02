@@ -1,12 +1,17 @@
-export const CREATE_NOTIFICATION = 'CREATE_NOTIFICATION';
+export const CREATE_SUCCESS_NOTIFICATION = 'CREATE_SUCCESS_NOTIFICATION';
+export const CREATE_ERROR_NOTIFICATION = 'CREATE_ERROR_NOTIFICATION';
 export const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
 export const AUTO_REMOVE_NOTIFICATION = 'AUTO_REMOVE_NOTIFICATION';
 export const MANUAL_REMOVE_NOTIFICATION = 'MANUAL_REMOVE_NOTIFICATION';
 
-
-export function createNotification(payload) {
+export function createSuccessNotification() {
   return {
-    type: CREATE_NOTIFICATION,
+    type: CREATE_SUCCESS_NOTIFICATION
+  }
+}
+export function createErrorNotification(payload) {
+  return {
+    type: CREATE_ERROR_NOTIFICATION,
     payload
   }
 }

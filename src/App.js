@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import logo from './logo.png';
+
+import { SnackBarContainer } from "./snackbar/view_layer";
 import './App.css';
 
 import Home from './pages/Home'
@@ -22,6 +24,7 @@ class App extends Component {
               <Route path="/uppercase" component={UpperCase} />
             </Switch>
           </div>
+          <SnackBarContainer/>
         </div>
       </Router>
     );
