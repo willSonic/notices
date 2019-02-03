@@ -1,7 +1,7 @@
 import {
   ADD_NOTIFICATION,
-  AUTO_REMOVE_NOTIFICATION,
-  MANUAL_REMOVE_NOTIFICATION,
+  REMOVING_NOTIFICATION,
+  UPDATE_NOTIFICATION
 } from './notification_actions';
 
 
@@ -12,19 +12,25 @@ export const initialState = {
 export const notificationReducer = (state = initialState, action) => {
   const { payload = { } } = action;
   switch(action.type) {
+
      case ADD_NOTIFICATION:
          return {
             ...state,
             notificationCollection: state.notificationCollection.concat(payload)
          };
+     case UPDATE_NOTIFICATION:
+         return {
+            ...state,
+            notificationCollection: state.notificationCollection.map((notification)=> {
+                return notification.id === payload.id?payload:notification;
+            })
+         };
 
-    case MANUAL_REMOVE_NOTIFICATION:
-    case AUTO_REMOVE_NOTIFICATION:
+    case REMOVING_NOTIFICATION:
          return {
             ...state,
             notificationCollection: state.notificationCollection.filter((notification)=> notification.id !== payload.id)
          };
-
 
     default:
       return state;

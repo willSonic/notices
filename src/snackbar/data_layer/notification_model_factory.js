@@ -8,11 +8,13 @@ const pobrecita_ID_Generator = (function() {
 export const buildNotification = ({
   statusCode,
   message ,
+  inputData,
   type,
   id = pobrecita_ID_Generator()
 } = {}) => ({
   statusCode,
   message,
+  inputData,
   type,
   id
 });

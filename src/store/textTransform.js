@@ -1,8 +1,13 @@
 import axios from 'axios'
 
 import {
- NotificationActions
+ NotificationActions,
+ notificationBuilder,
 } from '../snackbar/data_layer';
+
+import{
+    NOTIFICATION_TYPES,
+    NOTIFICATION_MESSAGE } from "../snackbar/business_layer/notification_consts";
 
 
 const TRANSFORM_VALUE_LOAD = 'TRANSFORM_VALUE_LOAD'
@@ -20,13 +25,21 @@ const transformText = (input, mode = LOWERCASE) => dispatch => {
     const endpoint = mode === UPPERCASE ? UPPERCASE_ENDPOINT : LOWERCASE_ENDPOINT
 
     dispatch({ type: TRANSFORM_VALUE_LOAD })
+    const newNotfication = notificationBuilder(
+          {
+            message:NOTIFICATION_MESSAGE.LOADING,
+            inputData:input,
+            type: NOTIFICATION_TYPES.LOADING,
+          });
+    dispatch(NotificationActions.postingNotification(newNotfication));
     axios.post(endpoint, { input })
         .then(res => {
-              dispatch( NotificationActions.createSuccessNotification( ) );
+              dispatch( NotificationActions.createSuccessNotification({notification:newNotfication}) );
               return dispatch(  { type: TRANSFORM_VALUE_SUCCESS, payload: res.data } );
         })
         .catch(err => {
-              dispatch( NotificationActions.createErrorNotification( {err}) );
+              const errorResponse = {notification:newNotfication, err:{...err.response}}
+              dispatch( NotificationActions.createErrorNotification(errorResponse) );
               return dispatch( { type: TRANSFORM_VALUE_ERROR, payload: err });
         });
 };

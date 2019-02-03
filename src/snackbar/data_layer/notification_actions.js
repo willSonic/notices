@@ -1,12 +1,23 @@
+export const POSTING_TRANSFORM_NOTIFICATION = 'POSTING_TRANSFORM_NOTIFICATION';
 export const CREATE_SUCCESS_NOTIFICATION = 'CREATE_SUCCESS_NOTIFICATION';
 export const CREATE_ERROR_NOTIFICATION = 'CREATE_ERROR_NOTIFICATION';
 export const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
-export const AUTO_REMOVE_NOTIFICATION = 'AUTO_REMOVE_NOTIFICATION';
+export const UPDATE_NOTIFICATION = 'UPDATE_NOTIFICATION';
+export const REMOVING_NOTIFICATION = 'BEGIN_REMOVING_NOTIFICATION';
 export const MANUAL_REMOVE_NOTIFICATION = 'MANUAL_REMOVE_NOTIFICATION';
 
-export function createSuccessNotification() {
+export function postingNotification(payload){
   return {
-    type: CREATE_SUCCESS_NOTIFICATION
+    type: POSTING_TRANSFORM_NOTIFICATION,
+    payload
+  }
+}
+
+export function createSuccessNotification(    payload
+) {
+  return {
+    type: CREATE_SUCCESS_NOTIFICATION,
+    payload
   }
 }
 export function createErrorNotification(payload) {
@@ -23,9 +34,17 @@ export function addNotification(payload) {
   }
 }
 
-export function autoRemoveNotification(payload) {
+export function updateNotification(payload){
   return {
-    type: AUTO_REMOVE_NOTIFICATION,
+    type: UPDATE_NOTIFICATION,
+    payload
+  }
+
+}
+
+export function removeNotification(payload){
+  return {
+    type: REMOVING_NOTIFICATION,
     payload
   }
 }

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { NotificationGetters, NotificationActions } from "../data_layer";
-import SnackBarContainer  from "../view_layer/containers/SnackBarContainer"
 
 
 const mapStateToProps = state =>({
