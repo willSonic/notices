@@ -1,5 +1,5 @@
 
-// 10 seconds;
+// 10 seconds Delay before auto removing Notification
 export const NOTIFICATION_DELAY=10 * 1000;
 
 

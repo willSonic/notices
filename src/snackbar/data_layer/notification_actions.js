@@ -3,7 +3,7 @@ export const CREATE_SUCCESS_NOTIFICATION = 'CREATE_SUCCESS_NOTIFICATION';
 export const CREATE_ERROR_NOTIFICATION = 'CREATE_ERROR_NOTIFICATION';
 export const ADD_NOTIFICATION = 'ADD_NOTIFICATION';
 export const UPDATE_NOTIFICATION = 'UPDATE_NOTIFICATION';
-export const REMOVING_NOTIFICATION = 'BEGIN_REMOVING_NOTIFICATION';
+export const REMOVE_NOTIFICATION = 'REMOVE_NOTIFICATION';
 export const MANUAL_REMOVE_NOTIFICATION = 'MANUAL_REMOVE_NOTIFICATION';
 
 export function postingNotification(payload){
@@ -44,7 +44,7 @@ export function updateNotification(payload){
 
 export function removeNotification(payload){
   return {
-    type: REMOVING_NOTIFICATION,
+    type: REMOVE_NOTIFICATION,
     payload
   }
 }

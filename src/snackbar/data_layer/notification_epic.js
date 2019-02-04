@@ -9,13 +9,12 @@ import {
     } from "../business_layer/notification_consts";
 
 
-export const epicPostingNotification = (action$) =>
-  action$.pipe(
-      ofType( notificationActions.POSTING_TRANSFORM_NOTIFICATION ),
-      mergeMap(({payload}) => of(notificationActions.addNotification(payload )))
-  );
 
-
+/**
+* Watches for successfully Transform response.
+* @param action$
+* @return {ActionsObservable} - dispatch to Update Notification in  Notification Reducer
+*/
 export const epicCreateSuccessNotification = (action$) =>
   action$.pipe(
       ofType( notificationActions.CREATE_SUCCESS_NOTIFICATION ),
@@ -29,6 +28,14 @@ export const epicCreateSuccessNotification = (action$) =>
         return  of(notificationActions.updateNotification( newNotification ));
       })
   );
+
+
+
+/**
+* Watches for incorrect Transform response.
+* @param action$ ( notification Object)
+* @return {ActionsObservable} - dispatch to Update Notification in  Notification Reducer
+*/
 
 export const epicCreateErrorNotification = (action$) =>
     action$.pipe(
@@ -45,7 +52,14 @@ export const epicCreateErrorNotification = (action$) =>
       })
     );
 
-export const epicAddNotification = (action$) =>
+
+
+/**
+* Watches for any update Action from Success or Errror update Action .
+* @param action$ ( notification Object)
+* @return {ActionsObservable} - After Specified Delay issues action to remove Notification
+*/
+export const epicUpdateNotification = (action$) =>
     action$.pipe(
       ofType(notificationActions.UPDATE_NOTIFICATION),
       delay(NOTIFICATION_DELAY),
@@ -53,6 +67,12 @@ export const epicAddNotification = (action$) =>
     );
 
 
+
+/**
+* Watches for manual request to remove Notification  .
+* @param action$ ( notification Object)
+* @return {ActionsObservable} - simply forwards remove Notification request
+*/
 export const epicBeginManualRemoveNotification = (action$) =>
     action$.pipe(
       ofType(notificationActions.MANUAL_REMOVE_NOTIFICATION),

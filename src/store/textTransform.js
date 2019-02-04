@@ -1,5 +1,9 @@
 import axios from 'axios'
 
+
+/**
+* Imports for Building Notification and Dispatching Actions
+*/
 import {
  NotificationActions,
  notificationBuilder,
@@ -25,21 +29,46 @@ const transformText = (input, mode = LOWERCASE) => dispatch => {
     const endpoint = mode === UPPERCASE ? UPPERCASE_ENDPOINT : LOWERCASE_ENDPOINT
 
     dispatch({ type: TRANSFORM_VALUE_LOAD })
+
+
+
+    /*
+    * Creates a Notification as a LOADING type,
+    * and dispatches it
+    */
+
     const newNotfication = notificationBuilder(
           {
             message:NOTIFICATION_MESSAGE.LOADING,
             inputData:input,
+            transformType:mode+'Transform',
             type: NOTIFICATION_TYPES.LOADING,
           });
-    dispatch(NotificationActions.postingNotification(newNotfication));
+    dispatch(NotificationActions.addNotification(newNotfication));
+
+
     axios.post(endpoint, { input })
         .then(res => {
+                /*
+                * Dispatches  original Loading Notification to handle side effect of updating to a Success Notification
+                * before updating store;
+                */
               dispatch( NotificationActions.createSuccessNotification({notification:newNotfication}) );
+
+
+
               return dispatch(  { type: TRANSFORM_VALUE_SUCCESS, payload: res.data } );
         })
         .catch(err => {
-              const errorResponse = {notification:newNotfication, err:{...err.response}}
+                /*
+                * Dispatches  original Loading Notification to handle side effect of updating to a Error Notification
+                * before updating store;
+                */
+              const errorResponse = {notification:newNotfication, err:{...err.response}};
               dispatch( NotificationActions.createErrorNotification(errorResponse) );
+
+
+
               return dispatch( { type: TRANSFORM_VALUE_ERROR, payload: err });
         });
 };

@@ -1,3 +1,9 @@
+/*
+* Barrel file for easier imports
+*
+*/
+
+
 import { combineEpics } from "redux-observable";
 import { buildNotification } from "./notification_model_factory";
 import {
@@ -5,21 +11,21 @@ import {
   createErrorNotification,
   addNotification,
   manualRemoveNotification,
-  postingNotification,
   updateNotification,
+  removeNotification,
   CREATE_SUCCESS_NOTIFICATION,
   CREATE_ERROR_NOTIFICATION,
   ADD_NOTIFICATION,
-  POSTING_TRANSFORM_NOTIFICATION,
+  REMOVE_NOTIFICATION,
   UPDATE_NOTIFICATION,
+  MANUAL_REMOVE_NOTIFICATION
 } from "./notification_actions";
 
 import {
   epicCreateSuccessNotification,
   epicCreateErrorNotification,
-  epicAddNotification,
+  epicUpdateNotification,
   epicBeginManualRemoveNotification,
-  epicPostingNotification,
 } from "./notification_epic";
 
 
@@ -39,13 +45,14 @@ export const NotificationActions ={
   createErrorNotification,
   addNotification,
   manualRemoveNotification,
-  postingNotification,
   updateNotification,
+  removeNotification,
   CREATE_SUCCESS_NOTIFICATION,
   CREATE_ERROR_NOTIFICATION,
   ADD_NOTIFICATION,
-  POSTING_TRANSFORM_NOTIFICATION,
+  REMOVE_NOTIFICATION,
   UPDATE_NOTIFICATION,
+  MANUAL_REMOVE_NOTIFICATION
 };
 
 export const notificationBuilder= buildNotification;
@@ -53,8 +60,7 @@ export const notificationBuilder= buildNotification;
 export const NotificationEpics = combineEpics(
   epicCreateSuccessNotification,
   epicCreateErrorNotification,
-  epicAddNotification,
+  epicUpdateNotification,
   epicBeginManualRemoveNotification,
-  epicPostingNotification
 );
 

@@ -28,7 +28,7 @@ export default class NotificationDisplay extends Component {
           </span>
        </p>
        <p>
-           {`transforming : ${notification.inputData} `}
+           {`${notification.transformType} : ${notification.inputData} `}
        </p>
       </div>
     );

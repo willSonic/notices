@@ -11,6 +11,10 @@ const mapDispatchToProps = {
   removeNotification:NotificationActions.manualRemoveNotification,
 }
 
+/*
+*  Separating Notification Connection services from visual layer in case
+*  other containers in visual layer want access
+*/
 
 export const NotificationConnectServices = ( containerToConnect )=>{
    return  connect(
